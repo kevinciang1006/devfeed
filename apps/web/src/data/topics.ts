@@ -1,0 +1,15 @@
+export const TOPICS = [
+  { id: "react",      label: "React",         icon: "\u269B\uFE0F", color: "#61DAFB", category: "Frontend"  },
+  { id: "vite",       label: "Vite",           icon: "\u26A1", color: "#646CFF", category: "Tooling"   },
+  { id: "tanstack",   label: "TanStack Query", icon: "\uD83D\uDD04", color: "#FF4154", category: "Frontend"  },
+  { id: "shadcn",     label: "shadcn/ui",      icon: "\uD83C\uDFA8", color: "#a1a1aa", category: "Frontend"  },
+  { id: "typescript", label: "TypeScript",     icon: "\uD83D\uDCD8", color: "#3178C6", category: "Language"  },
+  { id: "javascript", label: "JavaScript",     icon: "\uD83D\uDFE8", color: "#F7DF1E", category: "Language"  },
+  { id: "nextjs",     label: "Next.js",        icon: "\u25B2",  color: "#ffffff", category: "Framework" },
+  { id: "nodejs",     label: "Node.js",        icon: "\uD83D\uDFE2", color: "#339933", category: "Backend"   },
+  { id: "prisma",     label: "Prisma",         icon: "\u25ED",  color: "#5A67D8", category: "Backend"   },
+  { id: "css",        label: "CSS",            icon: "\uD83C\uDFA8", color: "#264DE4", category: "Frontend"  },
+  { id: "git",        label: "Git",            icon: "\uD83C\uDF3F", color: "#F05032", category: "Tooling"   },
+  { id: "economics",  label: "Economics",      icon: "\uD83D\uDCC8", color: "#22C55E", category: "General"   },
+  { id: "business",   label: "Business",       icon: "\uD83D\uDCBC", color: "#F59E0B", category: "General"   },
+]
