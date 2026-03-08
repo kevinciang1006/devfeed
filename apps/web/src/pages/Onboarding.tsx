@@ -22,7 +22,7 @@ export function Onboarding() {
   const { data } = useQuery({ queryKey: ['allTopics'], queryFn: getAllTopics })
   const saveTopics = useSaveTopics()
 
-  const categories = data?.categories || []
+  const categories = data || []
   const filteredDomains = categories.find((c) => c.id === selectedCategory)?.domains || []
   const filteredTopics = filteredDomains.find((d) => d.id === selectedDomain)?.topics || []
 

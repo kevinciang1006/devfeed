@@ -19,7 +19,7 @@ export function Settings() {
       <div className="mb-8">
         <SectionLabel>Your Topics</SectionLabel>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">
-          {topicsData?.userTopics.map((ut) => (
+          {topicsData?.map((ut) => (
             <div
               key={ut.id}
               className="bg-surface border border-border rounded-xl p-3 flex items-center gap-2"

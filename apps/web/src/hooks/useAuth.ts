@@ -14,7 +14,7 @@ export function useAuth() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
         syncUser()
-          .then((res) => setUser(res.user))
+          .then((user) => setUser(user))
           .catch(console.error)
           .finally(() => setLoading(false))
       } else {
@@ -27,8 +27,8 @@ export function useAuth() {
       async (event, session) => {
         if (event === 'SIGNED_IN' && session?.user) {
           try {
-            const res = await syncUser()
-            setUser(res.user)
+            const user = await syncUser()
+            setUser(user)
           } catch (err) {
             console.error('Failed to sync user:', err)
           }

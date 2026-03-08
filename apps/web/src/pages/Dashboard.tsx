@@ -29,7 +29,7 @@ export function Dashboard() {
     )
   }
 
-  const userTopics = topicsData?.userTopics || []
+  const userTopics = topicsData || []
 
   return (
     <AppLayout>
