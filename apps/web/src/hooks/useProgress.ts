@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getProgress, getUserTopics, saveUserTopics } from '../lib/api'
+import { getProgress } from '../services/progress.service'
+import { getUserTopics, saveUserTopics } from '../services/topic.service'
 import type { SaveUserTopicsRequest } from '@devfeed/shared'
 
 export function useProgress() {

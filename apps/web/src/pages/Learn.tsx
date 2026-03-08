@@ -50,7 +50,7 @@ export function Learn() {
         <p className="text-muted">No lesson available</p>
         <button
           onClick={() => navigate('/dashboard')}
-          className="text-[#646CFF] hover:text-white transition-colors"
+          className="text-accent hover:text-white transition-colors"
         >
           Back to Dashboard
         </button>
@@ -74,7 +74,7 @@ export function Learn() {
       {/* Lesson card */}
       <div className="bg-surface border border-border rounded-2xl p-6 md:p-8">
         {/* Concept pill */}
-        <div className="inline-block px-3 py-1 border border-[#646CFF] text-[#646CFF] rounded-full text-xs font-mono mb-4">
+        <div className="inline-block px-3 py-1 border border-accent text-accent rounded-full text-xs font-mono mb-4">
           {lesson.concept}
         </div>
 
@@ -88,15 +88,15 @@ export function Learn() {
         {/* Code block */}
         {lesson.codeExample && (
           <div className="bg-bg border border-border rounded-xl p-4 mb-6 overflow-x-auto">
-            <pre className="font-mono text-sm text-[#e0e0e0] whitespace-pre">
+            <pre className="font-mono text-sm text-text whitespace-pre">
               {lesson.codeExample}
             </pre>
           </div>
         )}
 
         {/* Key takeaway */}
-        <div className="border-l-4 border-[#22C55E] pl-4 py-2 mb-6">
-          <div className="font-mono text-[10px] text-[#22C55E] tracking-widest uppercase mb-1">
+        <div className="border-l-4 border-success pl-4 py-2 mb-6">
+          <div className="font-mono text-[10px] text-success tracking-widest uppercase mb-1">
             Key Takeaway
           </div>
           <p className="text-text text-sm">{lesson.keyTakeaway}</p>
@@ -108,7 +108,7 @@ export function Learn() {
             href={lesson.docRef}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-[#646CFF] text-sm hover:text-white transition-colors mb-6"
+            className="inline-flex items-center gap-1 text-accent text-sm hover:text-white transition-colors mb-6"
           >
             Read the Docs &nearr;
           </a>
@@ -131,7 +131,7 @@ export function Learn() {
         {lesson.quiz && (
           <button
             onClick={() => navigate(`/quiz/${topicId}`, { state: { lesson } })}
-            className="px-6 py-2 bg-[#646CFF] text-white rounded-lg font-semibold hover:bg-[#5558DD] transition-colors"
+            className="px-6 py-2 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
           >
             Test Yourself &rarr;
           </button>

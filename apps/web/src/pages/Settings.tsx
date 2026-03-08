@@ -46,7 +46,7 @@ export function Settings() {
             onClick={() => setSessionMode('FOCUSED')}
             className={`flex-1 p-4 rounded-xl border transition-colors ${
               sessionMode === 'FOCUSED'
-                ? 'border-[#646CFF] bg-[#646CFF]/10'
+                ? 'border-accent bg-accent/10'
                 : 'border-border bg-surface hover:border-muted'
             }`}
           >
@@ -57,7 +57,7 @@ export function Settings() {
             onClick={() => setSessionMode('SHALLOW')}
             className={`flex-1 p-4 rounded-xl border transition-colors ${
               sessionMode === 'SHALLOW'
-                ? 'border-[#646CFF] bg-[#646CFF]/10'
+                ? 'border-accent bg-accent/10'
                 : 'border-border bg-surface hover:border-muted'
             }`}
           >
@@ -75,7 +75,7 @@ export function Settings() {
           <button
             onClick={() => setDailyReminder(!dailyReminder)}
             className={`w-10 h-6 rounded-full transition-colors relative ${
-              dailyReminder ? 'bg-[#646CFF]' : 'bg-border'
+              dailyReminder ? 'bg-accent' : 'bg-border'
             }`}
           >
             <span
@@ -95,7 +95,7 @@ export function Settings() {
             {user?.avatarUrl ? (
               <img src={user.avatarUrl} alt="" className="w-12 h-12 rounded-full" />
             ) : (
-              <div className="w-12 h-12 rounded-full bg-[#646CFF] flex items-center justify-center text-white font-bold">
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold">
                 {user?.name?.charAt(0) || '?'}
               </div>
             )}
@@ -106,7 +106,7 @@ export function Settings() {
           </div>
           <button
             onClick={signOut}
-            className="w-full py-2 border border-[#EF4444] text-[#EF4444] rounded-lg text-sm hover:bg-[#EF4444]/10 transition-colors"
+            className="w-full py-2 border border-error text-error rounded-lg text-sm hover:bg-error/10 transition-colors"
           >
             Sign Out
           </button>

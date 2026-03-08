@@ -6,9 +6,14 @@ export default {
       colors: {
         bg: 'var(--bg)',
         surface: 'var(--surface)',
-        border: '#1a1a1a',
+        border: 'var(--border)',
         text: 'var(--text)',
         muted: 'var(--muted)',
+        accent: 'var(--accent)',
+        'accent-hover': 'var(--accent-hover)',
+        success: 'var(--success)',
+        error: 'var(--error)',
+        warning: 'var(--warning)',
       },
       fontFamily: {
         sans: ['Syne', 'sans-serif'],

@@ -4,26 +4,6 @@ import { eq } from 'drizzle-orm'
 import type { AuthUser } from '../types'
 
 export async function syncUser(authUser: AuthUser) {
-  const [existing] = await db
-    .select()
-    .from(users)
-    .where(eq(users.supabaseId, authUser.supabaseId))
-    .limit(1)
-
-  if (existing) {
-    const [user] = await db
-      .update(users)
-      .set({
-        email: authUser.email,
-        name: authUser.name,
-        avatarUrl: authUser.avatarUrl,
-        lastActiveAt: new Date(),
-      })
-      .where(eq(users.id, existing.id))
-      .returning()
-    return user
-  }
-
   const [user] = await db
     .insert(users)
     .values({
@@ -31,6 +11,15 @@ export async function syncUser(authUser: AuthUser) {
       name: authUser.name,
       avatarUrl: authUser.avatarUrl,
       supabaseId: authUser.supabaseId,
+    })
+    .onConflictDoUpdate({
+      target: users.supabaseId,
+      set: {
+        email: authUser.email,
+        name: authUser.name,
+        avatarUrl: authUser.avatarUrl,
+        lastActiveAt: new Date(),
+      },
     })
     .returning()
   return user

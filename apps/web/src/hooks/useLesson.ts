@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getNextLesson, startLesson, completeLesson } from '../lib/api'
+import { getNextLesson, startLesson, completeLesson } from '../services/lesson.service'
 import type { CompleteLessonRequest } from '@devfeed/shared'
 
 export function useNextLesson(topicId: string) {

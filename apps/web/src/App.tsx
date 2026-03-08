@@ -7,7 +7,7 @@ export default function App() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="w-3 h-3 rounded-full bg-[#646CFF] animate-pulse-dot" />
+        <div className="w-3 h-3 rounded-full bg-accent animate-pulse-dot" />
       </div>
     )
   }

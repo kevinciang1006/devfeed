@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { getAllTopics } from '../lib/api'
+import { getAllTopics } from '../services/topic.service'
 import { useSaveTopics } from '../hooks/useProgress'
 import type { ExpertiseLevel } from '@devfeed/shared'
 
@@ -53,7 +53,7 @@ export function Onboarding() {
         {[1, 2, 3, 4].map((s) => (
           <div
             key={s}
-            className={`w-8 h-1 rounded-full ${s <= step ? 'bg-[#646CFF]' : 'bg-border'}`}
+            className={`w-8 h-1 rounded-full ${s <= step ? 'bg-accent' : 'bg-border'}`}
           />
         ))}
         <span className="ml-2 font-mono text-[10px] text-muted">{step}/4</span>
@@ -71,7 +71,7 @@ export function Onboarding() {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`p-4 rounded-xl border text-left transition-colors ${
                   selectedCategory === cat.id
-                    ? 'border-[#646CFF] bg-[#646CFF]/10'
+                    ? 'border-accent bg-accent/10'
                     : 'border-border bg-surface hover:border-muted'
                 }`}
               >
@@ -98,7 +98,7 @@ export function Onboarding() {
                 onClick={() => setSelectedDomain(domain.id)}
                 className={`p-4 rounded-xl border text-left transition-colors ${
                   selectedDomain === domain.id
-                    ? 'border-[#646CFF] bg-[#646CFF]/10'
+                    ? 'border-accent bg-accent/10'
                     : 'border-border bg-surface hover:border-muted'
                 }`}
               >
@@ -124,7 +124,7 @@ export function Onboarding() {
                 <div
                   key={topic.id}
                   className={`p-4 rounded-xl border transition-colors ${
-                    selected ? 'border-[#646CFF] bg-[#646CFF]/10' : 'border-border bg-surface'
+                    selected ? 'border-accent bg-accent/10' : 'border-border bg-surface'
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -174,7 +174,7 @@ export function Onboarding() {
                   }
                   className={`p-4 rounded-xl border text-left transition-colors ${
                     extraCategories.includes(cat.id)
-                      ? 'border-[#646CFF] bg-[#646CFF]/10'
+                      ? 'border-accent bg-accent/10'
                       : 'border-border bg-surface hover:border-muted'
                   }`}
                 >
@@ -205,7 +205,7 @@ export function Onboarding() {
               (step === 2 && !selectedDomain) ||
               (step === 3 && selectedTopics.length === 0)
             }
-            className="px-6 py-2 bg-[#646CFF] text-white rounded-lg font-semibold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#5558DD] transition-colors"
+            className="px-6 py-2 bg-accent text-white rounded-lg font-semibold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-accent-hover transition-colors"
           >
             Next
           </button>
@@ -213,7 +213,7 @@ export function Onboarding() {
           <div className="flex gap-3">
             <button
               onClick={handleSave}
-              className="px-6 py-2 bg-[#646CFF] text-white rounded-lg font-semibold hover:bg-[#5558DD] transition-colors"
+              className="px-6 py-2 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
             >
               {saveTopics.isPending ? 'Saving...' : 'Save'}
             </button>

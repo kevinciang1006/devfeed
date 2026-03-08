@@ -56,11 +56,8 @@ export function Dashboard() {
               return (
                 <div key={day.date} className="flex flex-col items-center gap-1 flex-1">
                   <div
-                    className="w-full rounded-sm transition-all"
-                    style={{
-                      height: `${height}%`,
-                      backgroundColor: day.count > 0 ? '#646CFF' : '#1a1a1a',
-                    }}
+                    className={`w-full rounded-sm transition-all ${day.count > 0 ? 'bg-accent' : 'bg-border'}`}
+                    style={{ height: `${height}%` }}
                   />
                   <span className="font-mono text-[9px] text-muted">{day.label}</span>
                 </div>
@@ -91,7 +88,7 @@ export function Dashboard() {
             </div>
             <button
               onClick={() => navigate(`/learn/${ut.topicId}`)}
-              className="text-sm text-[#646CFF] hover:text-white transition-colors font-semibold"
+              className="text-sm text-accent hover:text-white transition-colors font-semibold"
             >
               Learn &rarr;
             </button>
@@ -104,7 +101,7 @@ export function Dashboard() {
           <p className="text-muted mb-4">No topics selected yet</p>
           <button
             onClick={() => navigate('/onboarding')}
-            className="px-6 py-2 bg-[#646CFF] text-white rounded-lg font-semibold"
+            className="px-6 py-2 bg-accent text-white rounded-lg font-semibold"
           >
             Get Started
           </button>

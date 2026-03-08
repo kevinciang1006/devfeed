@@ -9,6 +9,11 @@
   --border: #1a1a1a;
   --text: #e0e0e0;
   --muted: #666666;
+  --accent: #646CFF;
+  --accent-hover: #5558DD;
+  --success: #22C55E;
+  --error: #EF4444;
+  --warning: #F59E0B;
 }
 
 body {

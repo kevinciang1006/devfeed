@@ -37,7 +37,7 @@ export function Sidebar() {
           {user.avatarUrl ? (
             <img src={user.avatarUrl} alt="" className="w-8 h-8 rounded-full" />
           ) : (
-            <div className="w-8 h-8 rounded-full bg-[#646CFF] flex items-center justify-center text-white text-xs font-bold">
+            <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs font-bold">
               {user.name?.charAt(0) || '?'}
             </div>
           )}

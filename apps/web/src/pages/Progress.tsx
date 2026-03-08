@@ -55,7 +55,7 @@ export function Progress() {
             <LineChart data={accuracyData}>
               <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#666' }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fontSize: 10, fill: '#666' }} axisLine={false} tickLine={false} domain={[0, 100]} />
-              <Line type="monotone" dataKey="accuracy" stroke="#646CFF" strokeWidth={2} dot={false} />
+              <Line type="monotone" dataKey="accuracy" stroke="var(--accent)" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -71,8 +71,8 @@ export function Progress() {
                 <XAxis type="number" tick={{ fontSize: 10, fill: '#666' }} axisLine={false} tickLine={false} />
                 <YAxis type="category" dataKey="name" tick={{ fontSize: 10, fill: '#666' }} axisLine={false} tickLine={false} width={100} />
                 <Tooltip
-                  contentStyle={{ background: '#0f0f0f', border: '1px solid #1a1a1a', borderRadius: 8 }}
-                  labelStyle={{ color: '#e0e0e0' }}
+                  contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 8 }}
+                  labelStyle={{ color: 'var(--text)' }}
                 />
                 <Bar dataKey="lessons" radius={[0, 4, 4, 0]}>
                   {topicBarData.map((entry, index) => (
@@ -105,7 +105,7 @@ export function Progress() {
                   </div>
                 </div>
                 {session.quizScore !== undefined && (
-                  <span className="font-mono text-xs text-[#646CFF]">
+                  <span className="font-mono text-xs text-accent">
                     {session.quizScore}/{session.quizTotal}
                   </span>
                 )}

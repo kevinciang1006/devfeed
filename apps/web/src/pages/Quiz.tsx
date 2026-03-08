@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { useSubmitQuiz } from '../hooks/useQuiz'
-import { completeSession } from '../lib/api'
+import { completeSession } from '../services/session.service'
 import type { Lesson, SubmitQuizResponse } from '@devfeed/shared'
 
 export function Quiz() {
@@ -22,7 +22,7 @@ export function Quiz() {
         <p className="text-muted">No quiz available</p>
         <button
           onClick={() => navigate('/dashboard')}
-          className="text-[#646CFF] hover:text-white transition-colors"
+          className="text-accent hover:text-white transition-colors"
         >
           Back to Dashboard
         </button>
@@ -80,7 +80,7 @@ export function Quiz() {
                         }
                         className={`text-left p-3 rounded-lg border transition-colors text-sm ${
                           selected
-                            ? 'border-[#646CFF] text-[#646CFF] bg-[#646CFF]/10'
+                            ? 'border-accent text-accent bg-accent/10'
                             : 'border-border text-text hover:border-muted'
                         }`}
                       >
@@ -97,7 +97,7 @@ export function Quiz() {
             <button
               onClick={handleSubmit}
               disabled={!allAnswered || submitQuiz.isPending}
-              className="px-6 py-2 bg-[#646CFF] text-white rounded-lg font-semibold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#5558DD] transition-colors"
+              className="px-6 py-2 bg-accent text-white rounded-lg font-semibold disabled:opacity-30 disabled:cursor-not-allowed hover:bg-accent-hover transition-colors"
             >
               {submitQuiz.isPending ? 'Submitting...' : 'Submit'}
             </button>
@@ -126,8 +126,8 @@ export function Quiz() {
                       <span
                         className={`font-mono text-xs px-2 py-0.5 rounded ${
                           isCorrect
-                            ? 'bg-[#22C55E]/20 text-[#22C55E]'
-                            : 'bg-[#EF4444]/20 text-[#EF4444]'
+                            ? 'bg-success/20 text-success'
+                            : 'bg-error/20 text-error'
                         }`}
                       >
                         {isCorrect ? 'CORRECT' : 'INCORRECT'}
@@ -135,7 +135,7 @@ export function Quiz() {
                     </div>
                     <p className="text-white text-sm mb-2">{q.question}</p>
                     {!isCorrect && (
-                      <p className="text-[#22C55E] text-xs mb-2">
+                      <p className="text-success text-xs mb-2">
                         Correct answer: {q.options[result.correctAnswers[qIndex]]}
                       </p>
                     )}
@@ -148,7 +148,7 @@ export function Quiz() {
             <div className="mt-6 flex justify-end">
               <button
                 onClick={handleContinue}
-                className="px-6 py-2 bg-[#646CFF] text-white rounded-lg font-semibold hover:bg-[#5558DD] transition-colors"
+                className="px-6 py-2 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
               >
                 Continue &rarr;
               </button>
